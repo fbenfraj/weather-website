@@ -18,7 +18,7 @@ const forecast = (latitude, longitude, callback) => {
       } else if (body.error) {
         callback("Error in the coordinates entered.");
       } else {
-        const { summary } = body.daily.data[0];
+        const { summary, temperatureMin, temperatureMax } = body.daily.data[0];
         const { temperature, precipProbability } = body.currently;
 
         callback(
@@ -28,7 +28,12 @@ const forecast = (latitude, longitude, callback) => {
             temperature +
             " degrees out. There is a " +
             precipProbability +
-            "% chance of rain. "
+            "% chance of rain " +
+            "Temperature high: " +
+            temperatureMax +
+            "degrees  Temperature low: " +
+            temperatureMin +
+            "degrees."
         );
       }
     }

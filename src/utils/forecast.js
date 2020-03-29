@@ -27,13 +27,13 @@ const forecast = (latitude, longitude, callback) => {
             " It is currently " +
             temperature +
             " degrees out. There is a " +
-            precipProbability +
-            "% chance of rain " +
+            Math.floor(precipProbability) +
+            "% chance of rain. " +
             "Temperature high: " +
-            temperatureMax +
-            "degrees  Temperature low: " +
-            temperatureMin +
-            "degrees."
+            Math.floor(temperatureMax) +
+            " degrees. Temperature low: " +
+            Math.floor(temperatureMin) +
+            " degrees."
         );
       }
     }
